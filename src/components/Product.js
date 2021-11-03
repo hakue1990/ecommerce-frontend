@@ -4,7 +4,14 @@ import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   return (
-    <Card className="my-3 py-3 rounded card">
+    <Card
+      className="my-3 py-3 rounded card"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       {product.name}
       <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image} />
