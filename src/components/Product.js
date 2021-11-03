@@ -6,11 +6,11 @@ const Product = ({ product }) => {
   return (
     <Card className="my-3 py-3 rounded card">
       {product.name}
-      <Link to={`${product._id}`}>
+      <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image} />
       </Link>
       <Card.Body>
-        <Link to={`${product._id}`}>
+        <Link to={`/product/${product._id}`}>
           <Card.Title as="div">
             <strong>{product.name}</strong>
           </Card.Title>
@@ -26,7 +26,7 @@ const Product = ({ product }) => {
           </div>
         </Card.Text>
 
-        <Card.Text as="h3">{Math.round(product.price * 3.6)} PLN</Card.Text>
+        <Card.Text as="h3">{Math.floor(product.price * 3.6)} PLN</Card.Text>
       </Card.Body>
     </Card>
   );
