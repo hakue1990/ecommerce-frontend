@@ -18,7 +18,7 @@ const ProductScreen = ({ match }) => {
   return (
     <>
       <Link to="/" className="btn my-2">
-        Go back
+        Cofnij
       </Link>
       <Row>
         <Col lg="6" md="6" sm="1">
