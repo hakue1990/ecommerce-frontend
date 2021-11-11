@@ -12,14 +12,22 @@ const Footer = () => {
     <footer>
       <Container bg='dark'>
         <Row>
-          <Col className='text-center py-3'> Zaliczenie python WSB</Col>
+          <Col className='text-center py-3'>
+            Zaliczenie python
+            <br />
+            WSB React+Django
+          </Col>
           <Col className='text-center py-3'>
             {' '}
             <FontAwesomeIcon icon={faFacebook} className={'socialsIcons'} />
             <FontAwesomeIcon icon={faInstagram} className={'socialsIcons'} />
             <FontAwesomeIcon icon={faGithub} className={'socialsIcons'} />
           </Col>
-          <Col className='text-center py-3 '>Copyright &copy; 2021</Col>
+          <Col className='text-center py-3 '>
+            Copyright &copy; 2021
+            <br />
+            Adam Hałdaś && Bartosz Korytowski
+          </Col>
         </Row>
       </Container>
     </footer>
