@@ -5,7 +5,6 @@ import {
   faShoppingCart,
   faUser,
   faEnvelope,
-  faCode,
 } from '@fortawesome/free-solid-svg-icons';
 import { LinkContainer } from 'react-router-bootstrap';
 
