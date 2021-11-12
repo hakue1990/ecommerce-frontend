@@ -15,7 +15,9 @@ const Header = () => {
       <Navbar bg='dark' variant='dark' collapseOnSelect expand='lg'>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>Phyton WSB</Navbar.Brand>
+            <Navbar.Brand>
+              <span style={{ color: '#657ED4 ' }}>Phyton</span> WSB
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
@@ -32,12 +34,12 @@ const Header = () => {
                   Karta
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/code'>
+              {/* <LinkContainer to='/code'>
                 <Nav.Link className='py-3'>
                   <FontAwesomeIcon icon={faCode} />
                   Kod cezara
                 </Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
               <LinkContainer to='/contact'>
                 <Nav.Link className='py-3'>
                   <FontAwesomeIcon icon={faEnvelope} />

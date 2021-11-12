@@ -6,6 +6,7 @@ import {
   faGithub,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -18,10 +19,15 @@ const Footer = () => {
             WSB React+Django
           </Col>
           <Col className='text-center py-3'>
-            {' '}
-            <FontAwesomeIcon icon={faFacebook} className={'socialsIcons'} />
-            <FontAwesomeIcon icon={faInstagram} className={'socialsIcons'} />
-            <FontAwesomeIcon icon={faGithub} className={'socialsIcons'} />
+            <a target='blank' href='https://facebook.com'>
+              <FontAwesomeIcon icon={faFacebook} className={'socialsIcons'} />
+            </a>
+            <a target='blank' href='https://instagram.com'>
+              <FontAwesomeIcon icon={faInstagram} className={'socialsIcons'} />
+            </a>
+            <a target='blank' href='https://github.com'>
+              <FontAwesomeIcon icon={faGithub} className={'socialsIcons'} />
+            </a>
           </Col>
           <Col className='text-center py-3 '>
             Copyright &copy; 2021
