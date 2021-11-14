@@ -1,11 +1,22 @@
 import { Card } from 'react-bootstrap';
 import Rating from './Rating';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+  color: #657ed4;
+  :hover {
+    cursor: pointer;
+  }
+`;
 
 const Product = ({ product }) => {
   return (
     <Card className='my-3 py-3 rounded card'>
-      <div className='product--wrapper'>{product.name}</div>
+      <Wrapper className='card--title'>{product.name}</Wrapper>
       <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image} />
       </Link>

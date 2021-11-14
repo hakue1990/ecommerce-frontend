@@ -17,7 +17,7 @@ const ProductScreen = ({ match }) => {
 
   return (
     <>
-      <Link to='/' className='btn my-2'>
+      <Link to='/' className='btn my-2' style={{ color: '#657ed4' }}>
         Cofnij
       </Link>
       <Row>
@@ -31,7 +31,7 @@ const ProductScreen = ({ match }) => {
         <Col md={3}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h3>{product.name}</h3>
+              <h3 style={{ color: '#657ed4' }}> {product.name}</h3>
             </ListGroup.Item>
 
             <ListGroup.Item>
