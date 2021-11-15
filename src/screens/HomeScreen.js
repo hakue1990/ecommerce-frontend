@@ -1,8 +1,8 @@
-import React from 'react';
-import { Row, Col } from 'react-bootstrap';
-import products from '../products';
-import Product from '../components/Product';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import { Row, Col } from "react-bootstrap";
+import Product from "../components/Product";
+import styled from "styled-components";
+import axios from "axios";
 
 const H1 = styled.h1`
   color: #657ed4;
@@ -16,6 +16,22 @@ const H1 = styled.h1`
 `;
 
 export const HomeScreen = () => {
+  const [products, setProducts] = useState([]);
+
+  //Komponent został zamontowany
+  useEffect(() => {
+    console.log("use effect trigger");
+
+    async function fetchProducts() {
+      const { data } = await axios.get("http://127.0.0.1:8000/api/products/");
+      setProducts((prevData) => [...prevData, data]);
+    }
+
+    fetchProducts();
+
+    // url naszego backendu w Django
+  }, []);
+
   return (
     <>
       <Row>
