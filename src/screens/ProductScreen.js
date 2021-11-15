@@ -1,44 +1,65 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
   Row,
   Col,
   Image,
   ListGroup,
-  Button,
   Card,
   ListGroupItem,
-} from 'react-bootstrap';
-import Rating from '../components/Rating';
-import products from '../products';
+} from "react-bootstrap";
+import Rating from "../components/Rating";
+import products from "../products";
+import styled from "styled-components";
+
+const Button = styled.button`
+  padding: 5px 15px;
+  background-color: ${({ disabled }) => (disabled ? "#333" : "#657ed4")};
+
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  width: 120px;
+
+  :hover {
+    background-color: ${({ disabled }) => (disabled ? "#555" : "#768fe5")};
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  display: flex;
+  justify-content: center;
+`;
 
 const ProductScreen = ({ match }) => {
   const product = products.find((product) => product._id == match.params.id);
 
   return (
     <>
-      <Link to='/' className='btn my-2' style={{ color: '#657ed4' }}>
+      <Link to="/" className="btn my-2" style={{ color: "#657ed4" }}>
         Cofnij
       </Link>
       <Row>
-        <Col lg='6' md='6' sm='1'>
+        <Col lg="6" md="6" sm="1">
           <Image
             src={product.image}
             alt={product.name}
-            style={{ width: '100%' }}
+            style={{ width: "100%" }}
           />
         </Col>
         <Col md={3}>
-          <ListGroup variant='flush'>
+          <ListGroup variant="flush">
             <ListGroup.Item>
-              <h3 style={{ color: '#657ed4' }}> {product.name}</h3>
+              <h3 style={{ color: "#657ed4" }}> {product.name}</h3>
             </ListGroup.Item>
 
             <ListGroup.Item>
               <Rating
                 value={product.rating}
                 text={`${product.numReviews} odsłon`}
-                color={'#f8e825'}
+                color={"#f8e825"}
               />
             </ListGroup.Item>
             <ListGroup.Item>
@@ -55,7 +76,7 @@ const ProductScreen = ({ match }) => {
         </Col>
         <Col md={3}>
           <Card>
-            <ListGroup variant='flush'>
+            <ListGroup variant="flush">
               <ListGroupItem>
                 <Row>
                   <Col>Cena:</Col>
@@ -68,14 +89,14 @@ const ProductScreen = ({ match }) => {
                 <Row>
                   <Col>status:</Col>
                   <Col>
-                    {product.countInStock > 0 ? 'dostępny' : 'niedostępny'}
+                    {product.countInStock > 0 ? "dostępny" : "niedostępny"}
                   </Col>
                 </Row>
               </ListGroupItem>
               <ListGroup.Item>
-                <Button className='btn-block' type='button'>
-                  Dodaj do koszyka
-                </Button>
+                <Wrapper>
+                  <Button disabled>Dodaj</Button>
+                </Wrapper>
               </ListGroup.Item>
             </ListGroup>
           </Card>
