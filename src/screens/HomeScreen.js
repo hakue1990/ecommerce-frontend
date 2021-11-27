@@ -17,14 +17,16 @@ const H1 = styled.h1`
 
 export const HomeScreen = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLopading] = useState(true);
 
-  //Komponent został zamontowany
+  //Komponent został zamontowany - wykona sę raz
   useEffect(() => {
     console.log("use effect trigger");
 
     async function fetchProducts() {
-      const { data } = await axios.get("http://127.0.0.1:8000/api/products/");
-      setProducts((prevData) => [...prevData, data]);
+      const { data } = await axios.get("/api/products/");
+      await setIsLopading(false);
+      await setProducts(data);
     }
 
     fetchProducts();
@@ -36,6 +38,7 @@ export const HomeScreen = () => {
     <>
       <Row>
         <H1>Najnowsze produkty:</H1>
+        {isLoading && <h1>Ładowanie...</h1>}
         {products.map((product) => (
           <Col sm={12} md={6} lg={4} xl={3} key={product._id}>
             <Product product={product} />

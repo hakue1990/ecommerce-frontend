@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Row,
@@ -9,8 +9,8 @@ import {
   ListGroupItem,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
-import products from "../products";
 import styled from "styled-components";
+import axios from "axios";
 
 const Button = styled.button`
   padding: 5px 15px;
@@ -34,8 +34,21 @@ const Wrapper = styled.div`
 `;
 
 const ProductScreen = ({ match }) => {
-  const product = products.find((product) => product._id == match.params.id);
+  const [product, setProduct] = useState([]);
 
+  //Komponent został zamontowany - wykona sę raz
+  useEffect(() => {
+    console.log("use effect trigger");
+
+    async function fetchProducts() {
+      const { data } = await axios.get(`/api/products/${match.params.id}`);
+      setProduct(data);
+    }
+
+    fetchProducts();
+
+    // url naszego backendu w Django
+  }, []);
   return (
     <>
       <Link to="/" className="btn my-2" style={{ color: "#657ed4" }}>
